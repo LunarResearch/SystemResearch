@@ -1,1 +1,1 @@
-# KernelExplorerLite
+# SystemResearch
