@@ -1,3 +1,3 @@
 # SystemResearch
 
-<img align="left" src="https://raw.githubusercontent.com/LunarResearch/SystemResearch/main/skin_.png" width="1006" height="438">
+<img align="left" src="https://raw.githubusercontent.com/LunarResearch/SystemResearch/main/skin_.png" width="830" height="360">
