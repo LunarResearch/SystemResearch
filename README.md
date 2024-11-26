@@ -23,6 +23,13 @@ Recommended to use with Windows 10 or Windows 11.
 * Creating system processes in terminal and user sessions.
 * 100% [Free Software](https://www.gnu.org/philosophy/free-sw.en.html) ([GPL v3](https://www.gnu.org/licenses/gpl-3.0.en.html))
 
+## How to use
+* Run the program as Administrator.
+* Push the button `Privilege & Access Manager` and select privileges `SeDebugPrivilrge`, Apply.
+* Push the button `SuperUser (as Winlogon)`.
+* Now you are a SYSTEM account.
+* If necessary, use a `LocalSystem Token` or `TrustedInstaller Token`.
+
 ## Download
 [GitHub Releases](https://github.com/LunarResearch/SystemResearch/releases)
 
