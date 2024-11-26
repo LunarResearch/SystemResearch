@@ -29,6 +29,7 @@ Recommended to use with Windows 10 or Windows 11.
 * Push the button `SuperUser (as Winlogon)`.
 * Now you are a SYSTEM account.
 * If necessary, use a `LocalSystem Token` or `TrustedInstaller Token`.
+* To access the SACL and DACL (SDDL) of process token apply privilege `SeSecurityPrivilege`.
 
 ## Download
 [GitHub Releases](https://github.com/LunarResearch/SystemResearch/releases)
