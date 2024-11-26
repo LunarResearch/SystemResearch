@@ -8,8 +8,6 @@ Authorization with Highest System Rights
 
 Switching Desktops & Sessions Utility
 
-Remote Processes Controlling using the Service Account Interceptor
-
 ## System requirements
 
 Windows Vista or higher, only 64-bit.
