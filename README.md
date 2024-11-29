@@ -13,6 +13,7 @@ Switching Desktops & Sessions Utility
 Windows Vista or higher, only 64-bit.
 
 Recommended to use with Windows 10 or Windows 11.
+* Driver FDUI0Input.sys does not work on Windows 11 24H2 (build 26100 and newer).
 
 ## Features
 
@@ -28,8 +29,8 @@ Recommended to use with Windows 10 or Windows 11.
 * Push the button `Privilege & Access Manager` and select privileges `SeDebugPrivilrge`, Apply.
 * Push the button `SuperUser (as Winlogon)`. Now you are a SYSTEM account.
 * If necessary, use a `LocalSystem Token` or `TrustedInstaller Token`.
-* For access the SACL and DACL (SDDL) of Token Process descriptor apply privilege `SeSecurityPrivilege`.
-* For access the SACL and DACL (SDDL) of Process descriptor apply `Access System Security (SACL)` and `Read Control (DACL)` in the `Access Manager`.
+* For access the SACL and DACL (SDDL) of a Token Process Descriptor apply privilege `SeSecurityPrivilege`.
+* For access the SACL and DACL (SDDL) of a Process Descriptor apply `Access System Security (SACL)` and `Read Control (DACL)` in the `Access Manager`.
 * For remove protection from the Service, you must to accept a token `TrustedInstaller Token`.
 
 ## Download
