@@ -26,8 +26,7 @@ Recommended to use with Windows 10 or Windows 11.
 ## How to use
 * Run the program as Administrator.
 * Push the button `Privilege & Access Manager` and select privileges `SeDebugPrivilrge`, Apply.
-* Push the button `SuperUser (as Winlogon)`.
-* Now you are a SYSTEM account.
+* Push the button `SuperUser (as Winlogon)`. Now you are a SYSTEM account.
 * If necessary, use a `LocalSystem Token` or `TrustedInstaller Token`.
 * For access the SACL and DACL (SDDL) of Token Process descriptor apply privilege `SeSecurityPrivilege`.
 * For access the SACL and DACL (SDDL) of Process descriptor apply `Access System Security (SACL)` and `Read Control (DACL)` in the `Access Manager`.
