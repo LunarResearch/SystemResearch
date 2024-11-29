@@ -12,8 +12,8 @@ Switching Desktops & Sessions Utility
 
 Windows Vista or higher, only 64-bit.
 
-Recommended to use with Windows 10 or Windows 11.
-!_Note: The FDUI0Input.sys driver does not work on Windows 11 24H2 (build 26100 and newer)._
+Recommended to use with Windows 10 or Windows 11.⋅⋅
+_Note: The FDUI0Input.sys driver does not work on Windows 11 24H2 (build 26100 and newer)._
 
 ## Features
 
