@@ -26,7 +26,7 @@ _Note: The __FDUI0Input.sys__ driver does not work on Windows 11 24H2 (build 261
 
 ## How to use
 * Run the program as Administrator.
-* Push the button `Privilege & Access Manager` and select privileges `SeDebugPrivilrge`, Apply.
+* Push the button `Privilege & Access Manager` and select privilege `SeDebugPrivilrge`, Apply.
 * Push the button `SuperUser (as Winlogon)`. Now you are a SYSTEM account.
 * If necessary, use a `LocalSystem Token` (smss.exe token) or `TrustedInstaller Token` (TrustedInstaller.exe token).
 * For access the SACL, DACL and SDDL string of a ___Token Process Descriptor___ apply privilege `SeSecurityPrivilege`.
