@@ -17,7 +17,7 @@ _Note: The __FDUI0Input.sys__ driver does not work on Windows 11 24H2 (build 261
 
 ## Features
 
-* Works under an account `NT AUTHORITY\\SYSTEM`
+* Works under an account `NT AUTHORITY\\SYSTEM`.
 * Access to protected objects of the operating system kernel.
 * Management of processes and services of the operating system.
 * Access to the terminal session (SessionId 0), Workstations and Desktops.
