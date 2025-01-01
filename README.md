@@ -32,7 +32,7 @@ _Note: The __FDUI0Input.sys__ driver does not work on Windows 11 24H2 (build 261
 * For access the SACL, DACL and SDDL string of a ___Token Process Descriptor___ apply privilege `SeSecurityPrivilege`.
 * For access the SACL, DACL and SDDL string of a ___Process Descriptor___ apply `Access System Security (SACL)` and `Read Control (DACL)` in the `Access Manager`.
 * For remove protection from the Service, you must to accept a token `TrustedInstaller Token`.
-* For open the Properties window, select a line in the Process List or Service List and double-click the left mouse button, or call the context menu with the right mouse button.
+* For open the `Properties` window, select a line in the Process List or Service List and double-click the left mouse button, or call the context menu with the right mouse button.
 
 ## Download
 [GitHub Releases](https://github.com/LunarResearch/SystemResearch/releases)
