@@ -60,8 +60,8 @@ BOOL GetSystemACL(HWND hDlg, DWORD Manager)
 		case 10586:
 		case 14393:
 		case 15063:
-		case 16299: // 0xF0003FAB &= 0x3FFF -> 0x3FAB
-		case 17134: // 0xF00042EE &= 0x5FFF -> 0x42EE
+		case 16299:
+		case 17134:
 		case 17763:
 		case 18362:
 		case 18363:
@@ -75,8 +75,8 @@ BOOL GetSystemACL(HWND hDlg, DWORD Manager)
 			GetSecurityInfoEx = (_GetSecurityInfoEx)GetProcAddressFromPattern(TEXT("advapi32"), GetPattern_9200_10240_22621, GetMask_9200_10240_22621);
 			break;
 
-		case 22631: // 0xF0005867 &= 0x5FFF -> 0x5867
-		case 26100: // 0xF00065F4 &= 0x7FFF -> 0x65F4
+		case 22631:
+		case 26100:
 			GetSecurityInfoEx = (_GetSecurityInfoEx)GetProcAddressFromPattern(TEXT("advapi32"), GetPattern_22631_26100, GetMask_22631_26100);
 			break;
 	}
