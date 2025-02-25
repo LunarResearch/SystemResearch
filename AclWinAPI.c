@@ -89,8 +89,6 @@ BOOL GetSystemACL(HWND hDlg, DWORD Manager)
 		if (!g_hProcess)
 			g_hProcess = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION | OBJ_KERNEL_DESIRED_ACCESS, FALSE, g_dwProcessId);
 
-		// https://habr.com/ru/articles/448472/
-
 		if (GetSecurityInfo(g_hProcess, SE_KERNEL_OBJECT, SACL_SECURITY_INFORMATION | LABEL_SECURITY_INFORMATION, nullptr, nullptr, nullptr, &pSacl, nullptr) != ERROR_SUCCESS)
 			GetSecurityInfo(g_hProcess, SE_KERNEL_OBJECT, SACL_SECURITY_INFORMATION, nullptr, nullptr, nullptr, &pSacl, nullptr);
 		GetSecurityInfoEx(g_hProcess, SE_KERNEL_OBJECT, SACL_SECURITY_INFORMATION, nullptr, nullptr, nullptr, &pObjKernelAuditList, nullptr, nullptr);
