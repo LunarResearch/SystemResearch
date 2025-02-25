@@ -829,7 +829,7 @@ HTREEITEM AceAccessFlagsBruteForce(HWND hDlg, BOOL IsSacl, DWORD AccessFlags, WO
 	HTREEITEM hTreeViewItem = nullptr;
 	TCHAR Buffer[MAX_PATH] = { 0 }, temp[MAX_PATH] = { 0 };
 
-	switch (AccessFlags)// Этот элемент может быть одним из следующих значений:
+	switch (AccessFlags)
 	{
 		case 0x0:
 			swprintf(temp, MAX_PATH, TEXT("0"));
