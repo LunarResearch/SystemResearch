@@ -736,37 +736,37 @@ HTREEITEM AceTrusteeTypeBruteForce(HWND hDlg, BOOL IsSacl, int TrusteeType, WORD
 /*0*/	case TRUSTEE_IS_UNKNOWN:
 			LoadString(g_hInstance, 10158, temp, MAX_PATH);
 			break;
-/*1*/	case TRUSTEE_IS_USER: // SidTypeUser = 1 (from SID_NAME_USE)
+/*1*/	case TRUSTEE_IS_USER:
 			LoadString(g_hInstance, 10159, temp, MAX_PATH);
 			break;
-/*2*/	case TRUSTEE_IS_GROUP: // SidTypeGroup = 2 (from SID_NAME_USE)
+/*2*/	case TRUSTEE_IS_GROUP:
 			LoadString(g_hInstance, 10160, temp, MAX_PATH);
 			break;
-/*3*/	case TRUSTEE_IS_DOMAIN: // SidTypeDomain = 3 (from SID_NAME_USE)
+/*3*/	case TRUSTEE_IS_DOMAIN:
 			LoadString(g_hInstance, 10161, temp, MAX_PATH);
 			break;
-/*4*/	case TRUSTEE_IS_ALIAS: // SidTypeAlias = 4 (from SID_NAME_USE)
+/*4*/	case TRUSTEE_IS_ALIAS:
 			LoadString(g_hInstance, 10162, temp, MAX_PATH);
 			break;
-/*5*/	case TRUSTEE_IS_WELL_KNOWN_GROUP: // SidTypeWellKnownGroup = 5 (from SID_NAME_USE)
+/*5*/	case TRUSTEE_IS_WELL_KNOWN_GROUP:
 			LoadString(g_hInstance, 10163, temp, MAX_PATH);
 			break;
-/*6*/	case TRUSTEE_IS_DELETED_ACCOUNT: // SidTypeDeletedAccount = 6 (from SID_NAME_USE)
+/*6*/	case TRUSTEE_IS_DELETED_ACCOUNT:
 			LoadString(g_hInstance, 10164, temp, MAX_PATH);
 			break;
-/*7*/	case TRUSTEE_IS_INVALID: // SidTypeInvalid = 7 (from SID_NAME_USE)
+/*7*/	case TRUSTEE_IS_INVALID:
 			LoadString(g_hInstance, 10165, temp, MAX_PATH);
 			break;
-/*8*/	case TRUSTEE_IS_UNKNOWN_TYPE: // SidTypeUnknown = 8 (from SID_NAME_USE)
+/*8*/	case TRUSTEE_IS_UNKNOWN_TYPE:
 			LoadString(g_hInstance, 10166, temp, MAX_PATH);
 			break;
-/*9*/	case TRUSTEE_IS_COMPUTER: // SidTypeComputer = 9 (from SID_NAME_USE)
+/*9*/	case TRUSTEE_IS_COMPUTER:
 			LoadString(g_hInstance, 10167, temp, MAX_PATH);
 			break;
-/*10*/	case TRUSTEE_IS_LABEL: // SidTypeLabel = 10 (from SID_NAME_USE)
+/*10*/	case TRUSTEE_IS_LABEL:
 			LoadString(g_hInstance, 10168, temp, MAX_PATH);
 			break;
-/*11*/	case TRUSTEE_IS_LOGON_SESSION: // SidTypeLogonSession = 11 (from SID_NAME_USE)
+/*11*/	case TRUSTEE_IS_LOGON_SESSION:
 			LoadString(g_hInstance, 10169, temp, MAX_PATH);
 			break;
 	}
