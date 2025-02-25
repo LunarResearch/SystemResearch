@@ -43,7 +43,7 @@ BOOL GetSystemACL(HWND hDlg, DWORD Manager)
 {
 	switch (GetBuildOSNumber())
 	{
-		case 6000: // 0xF0001770 &= 0x3FFF -> 0x1770
+		case 6000:
 		case 6001:
 		case 6002:
 		case 7600:
