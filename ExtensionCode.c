@@ -200,7 +200,7 @@ BOOL GetSecurityDescInfo(HWND hDlg)
 {
 	PSECURITY_DESCRIPTOR pSecurityDescriptor = nullptr;
 	PTCHAR 	StringSecurityDescriptorOwner = nullptr, StringSidOwner = nullptr, DomainNameOwner = nullptr, AccountNameOwner = nullptr,
-			StringSecurityDescriptorGroup = nullptr, StringSidGroup = nullptr, DomainNameGroup = nullptr, AccountNameGroup = nullptr;
+		StringSecurityDescriptorGroup = nullptr, StringSidGroup = nullptr, DomainNameGroup = nullptr, AccountNameGroup = nullptr;
 	PSID pSidOwner = nullptr, pSidGroup = nullptr;
 	TCHAR StringOwner[MAX_PATH] = { 0 }, StringGroup[MAX_PATH] = { 0 };
 	DWORD cchAccountNameOwner = 0, cchDomainNameOwner = 0, cchAccountNameGroup = 0, cchDomainNameGroup = 0;
