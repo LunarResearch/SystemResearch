@@ -130,13 +130,13 @@
 #define MB_CAPTIONEXCLAMATION TEXT("Notification")
 
 
-constexpr int DWMWCP_DEFAULT = 0;			// Let the system decide whether or not to round window corners.
+constexpr int DWMWCP_DEFAULT = 0;		// Let the system decide whether or not to round window corners.
 constexpr int DWMWCP_DONOTROUND = 1;		// Never round window corners.
-constexpr int DWMWCP_ROUND = 2;				// Round the corners if appropriate.
+constexpr int DWMWCP_ROUND = 2;			// Round the corners if appropriate.
 constexpr int DWMWCP_ROUNDSMALL = 3;		// Round the corners if appropriate, with a small radius.
 
-constexpr int DWMSBT_AUTO = 0;				// [Default] Let DWM automatically decide the system-drawn backdrop for this window.
-constexpr int DWMSBT_NONE = 1;				// Do not draw any system backdrop.
+constexpr int DWMSBT_AUTO = 0;			// [Default] Let DWM automatically decide the system-drawn backdrop for this window.
+constexpr int DWMSBT_NONE = 1;			// Do not draw any system backdrop.
 constexpr int DWMSBT_MAINWINDOW = 2;		// Draw the backdrop material effect corresponding to a long-lived window.
 constexpr int DWMSBT_TRANSIENTWINDOW = 3;	// Draw the backdrop material effect corresponding to a transient window.
 constexpr int DWMSBT_TABBEDWINDOW = 4;		// Draw the backdrop material effect corresponding to a window with a tabbed title bar.
