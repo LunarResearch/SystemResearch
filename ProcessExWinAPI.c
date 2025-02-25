@@ -773,23 +773,6 @@ BOOL SetTokenIntegrityLevelInfo(DWORD SubAuthority)
 	}
 	CloseHandle(hProcess);
 
-	/*
-	hThread = OpenThread(THREAD_ALL_ACCESS, FALSE, g_dwThreadId);
-
-	if (!SetThreadToken(&hThread, hToken)) {
-		CloseHandle(hThread);
-		return FALSE;
-	}
-
-	if (!OpenThreadToken(hThread, TOKEN_ALL_ACCESS, FALSE, &hToken)) {
-		// ERROR_NO_TOKEN - Threads only have their own tokens if you are using the impersonation APIs, otherwise there is only a process token.
-		// Потоки имеют собственные токены только в том случае, если вы используете API олицетворения, в противном случае есть только токен процесса.
-		CloseHandle(hThread);
-		return FALSE;
-	}
-	CloseHandle(hThread);
-	*/
-
 	TOKEN_MANDATORY_LABEL TokenMandatoryLabel = { 0 };
 	TokenMandatoryLabel.Label.Attributes = SE_GROUP_INTEGRITY;
 
