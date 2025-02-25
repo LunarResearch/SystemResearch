@@ -20,8 +20,8 @@ LRESULT CALLBACK DialogProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 			GetSecurityDescInfo(hDlg);
 
-        	g_hWndProcessList = GetDlgItem(hDlg, 4011);
-        	g_hWndServiceList = GetDlgItem(hDlg, 4016);
+        		g_hWndProcessList = GetDlgItem(hDlg, 4011);
+        		g_hWndServiceList = GetDlgItem(hDlg, 4016);
 			i = g_Idx;
 			ListProcess(g_hWndProcessList);
 			ListService(g_hWndServiceList);
@@ -125,7 +125,7 @@ LRESULT CALLBACK DialogProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 				InsertMenu(hMenu, 0, MF_BYCOMMAND | MF_STRING, 1, Buffer);
 				LoadString(g_hInstance, 10291, Buffer, MAX_PATH);
 				InsertMenu(hMenu, 0, MF_BYCOMMAND | MF_STRING, 2, Buffer);
-            	ContextMenuId = TrackPopupMenuEx(hMenu, TPM_LEFTALIGN | TPM_TOPALIGN | TPM_LEFTBUTTON | TPM_RETURNCMD, GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam), hDlg, nullptr);
+            			ContextMenuId = TrackPopupMenuEx(hMenu, TPM_LEFTALIGN | TPM_TOPALIGN | TPM_LEFTBUTTON | TPM_RETURNCMD, GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam), hDlg, nullptr);
 				switch (ContextMenuId)
 				{
 					case 1:
@@ -158,7 +158,7 @@ LRESULT CALLBACK DialogProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 				InsertMenu(hMenu, 0, MF_BYCOMMAND | MF_STRING, 1, Buffer);
 				LoadString(g_hInstance, 10292, Buffer, MAX_PATH);
 				InsertMenu(hMenu, 0, MF_BYCOMMAND | MF_STRING, 2, Buffer);
-            	ContextMenuId = TrackPopupMenuEx(hMenu, TPM_LEFTALIGN | TPM_TOPALIGN | TPM_LEFTBUTTON | TPM_RETURNCMD, GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam), hDlg, nullptr);
+            			ContextMenuId = TrackPopupMenuEx(hMenu, TPM_LEFTALIGN | TPM_TOPALIGN | TPM_LEFTBUTTON | TPM_RETURNCMD, GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam), hDlg, nullptr);
 				switch (ContextMenuId)
 				{
 					case 1:
