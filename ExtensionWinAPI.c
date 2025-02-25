@@ -527,10 +527,10 @@ HWND CreateToolTip(HWND hDlg, int nIDControl, int nIDText, PTCH pszText)
 
     SendMessage(hWndTip, TTM_ADDTOOL, 0, (LPARAM)&ToolInfo);
 
-	SendMessage(hWndTip, TTM_SETMAXTIPWIDTH, 0, UCHAR_MAX); // SHRT_MAX (одной строкой)   UCHAR_MAX (с переносом строк)
-	SendMessage(hWndTip, TTM_SETDELAYTIME, TTDT_AUTOPOP, SHRT_MAX); // временя, которое должно пройти до того, как ToolTip исчезнет (SHRT_MAX ~30 сек)
-	SendMessage(hWndTip, TTM_SETDELAYTIME, TTDT_INITIAL, 1000); // интервал между моментом остановки курсора мыши и первым появлением подсказки
-	SendMessage(hWndTip, TTM_SETDELAYTIME, TTDT_RESHOW, 200); // интервал между появлением следующей подсказки при перемещении курсора в другой круг
+	SendMessage(hWndTip, TTM_SETMAXTIPWIDTH, 0, UCHAR_MAX);
+	SendMessage(hWndTip, TTM_SETDELAYTIME, TTDT_AUTOPOP, SHRT_MAX);
+	SendMessage(hWndTip, TTM_SETDELAYTIME, TTDT_INITIAL, 1000);
+	SendMessage(hWndTip, TTM_SETDELAYTIME, TTDT_RESHOW, 200);
 
     return hWndTip;
 }
