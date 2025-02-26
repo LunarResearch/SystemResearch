@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings version="1.0">
+	<category name="InternalCode.c">
+		<category name="Window">
+			<property name="Left" type="integer">0</property>
+			<property name="Top" type="integer">0</property>
+			<property name="Right" type="integer">1440</property>
+			<property name="Bottom" type="integer">535</property>
+			<property name="Maximized" type="integer">0</property>
+			<property name="Active" type="integer">0</property>
+		</category>
+	</category>
+	<category name="Defines.h">
+		<category name="Window">
+			<property name="Left" type="integer">26</property>
+			<property name="Top" type="integer">26</property>
+			<property name="Right" type="integer">1466</property>
+			<property name="Bottom" type="integer">561</property>
+			<property name="Maximized" type="integer">0</property>
+			<property name="Active" type="integer">0</property>
+		</category>
+	</category>
+	<category name="DialogBox.rc">
+		<category name="Window">
+			<property name="Left" type="integer">52</property>
+			<property name="Top" type="integer">52</property>
+			<property name="Right" type="integer">1492</property>
+			<property name="Bottom" type="integer">587</property>
+			<property name="Maximized" type="integer">0</property>
+			<property name="Active" type="integer">0</property>
+		</category>
+	</category>
+	<category name="SourceCode.c">
+		<category name="Window">
+			<property name="Left" type="integer">78</property>
+			<property name="Top" type="integer">78</property>
+			<property name="Right" type="integer">1518</property>
+			<property name="Bottom" type="integer">613</property>
+			<property name="Maximized" type="integer">0</property>
+			<property name="Active" type="integer">0</property>
+		</category>
+	</category>
+	<category name="ExtensionCode.c">
+		<category name="Window">
+			<property name="Left" type="integer">104</property>
+			<property name="Top" type="integer">104</property>
+			<property name="Right" type="integer">1544</property>
+			<property name="Bottom" type="integer">639</property>
+			<property name="Maximized" type="integer">0</property>
+			<property name="Active" type="integer">0</property>
+		</category>
+	</category>
+	<category name="ExtensionWinAPI.c">
+		<category name="Foldings">
+			<property name="Line1" type="integer">5</property>
+			<property name="Line2" type="integer">49</property>
+			<property name="Line3" type="integer">213</property>
+			<property name="Line4" type="integer">292</property>
+			<property name="Line5" type="integer">304</property>
+			<property name="Line6" type="integer">326</property>
+			<property name="Line7" type="integer">339</property>
+			<property name="Line8" type="integer">397</property>
+			<property name="Line9" type="integer">430</property>
+			<property name="Line10" type="integer">510</property>
+		</category>
+		<category name="Window">
+			<property name="Left" type="integer">130</property>
+			<property name="Top" type="integer">130</property>
+			<property name="Right" type="integer">1570</property>
+			<property name="Bottom" type="integer">665</property>
+			<property name="Maximized" type="integer">0</property>
+			<property name="Active" type="integer">0</property>
+		</category>
+	</category>
+	<category name="ExtensionAclWinAPI.c">
+		<category name="Foldings">
+			<property name="Line1" type="integer">5</property>
+			<property name="Line2" type="integer">30</property>
+			<property name="Line3" type="integer">46</property>
+			<property name="Line4" type="integer">66</property>
+			<property name="Line5" type="integer">103</property>
+			<property name="Line6" type="integer">120</property>
+			<property name="Line7" type="integer">173</property>
+			<property name="Line8" type="integer">216</property>
+			<property name="Line9" type="integer">231</property>
+			<property name="Line10" type="integer">333</property>
+			<property name="Line11" type="integer">581</property>
+			<property name="Line12" type="integer">627</property>
+			<property name="Line13" type="integer">662</property>
+			<property name="Line14" type="integer">681</property>
+			<property name="Line15" type="integer">696</property>
+			<property name="Line16" type="integer">730</property>
+			<property name="Line17" type="integer">786</property>
+			<property name="Line18" type="integer">812</property>
+			<property name="Line19" type="integer">828</property>
+			<property name="Line20" type="integer">869</property>
+			<property name="Line21" type="integer">931</property>
+			<property name="Line22" type="integer">1147</property>
+		</category>
+		<category name="Window">
+			<property name="Left" type="integer">156</property>
+			<property name="Top" type="integer">156</property>
+			<property name="Right" type="integer">1596</property>
+			<property name="Bottom" type="integer">691</property>
+			<property name="Maximized" type="integer">0</property>
+			<property name="Active" type="integer">0</property>
+		</category>
+	</category>
+	<category name="InternalWinAPI.c">
+		<category name="Foldings">
+			<property name="Line1" type="integer">163</property>
+			<property name="Line2" type="integer">256</property>
+		</category>
+		<category name="Window">
+			<property name="Left" type="integer">182</property>
+			<property name="Top" type="integer">182</property>
+			<property name="Right" type="integer">1622</property>
+			<property name="Bottom" type="integer">717</property>
+			<property name="Maximized" type="integer">0</property>
+			<property name="Active" type="integer">0</property>
+		</category>
+	</category>
+	<category name="ServiceExWinAPI.c">
+		<category name="Window">
+			<property name="Left" type="integer">208</property>
+			<property name="Top" type="integer">208</property>
+			<property name="Right" type="integer">1648</property>
+			<property name="Bottom" type="integer">743</property>
+			<property name="Maximized" type="integer">0</property>
+			<property name="Active" type="integer">0</property>
+		</category>
+	</category>
+	<category name="ProcessExWinAPI.c">
+		<category name="Foldings">
+			<property name="Line1" type="integer">776</property>
+		</category>
+		<category name="Window">
+			<property name="Left" type="integer">234</property>
+			<property name="Top" type="integer">234</property>
+			<property name="Right" type="integer">1674</property>
+			<property name="Bottom" type="integer">769</property>
+			<property name="Maximized" type="integer">0</property>
+			<property name="Active" type="integer">0</property>
+		</category>
+	</category>
+	<category name="AclWinAPI.c">
+		<category name="Foldings">
+			<property name="Line1" type="integer">4</property>
+			<property name="Line2" type="integer">12</property>
+			<property name="Line3" type="integer">20</property>
+			<property name="Line4" type="integer">27</property>
+			<property name="Line5" type="integer">35</property>
+			<property name="Line6" type="integer">45</property>
+			<property name="Line7" type="integer">88</property>
+			<property name="Line8" type="integer">100</property>
+			<property name="Line9" type="integer">117</property>
+			<property name="Line10" type="integer">259</property>
+			<property name="Line11" type="integer">302</property>
+			<property name="Line12" type="integer">311</property>
+			<property name="Line13" type="integer">328</property>
+			<property name="Line14" type="integer">444</property>
+			<property name="Line15" type="integer">474</property>
+		</category>
+		<category name="Window">
+			<property name="Left" type="integer">4294967288</property>
+			<property name="Top" type="integer">4294967265</property>
+			<property name="Right" type="integer">1616</property>
+			<property name="Bottom" type="integer">722</property>
+			<property name="Maximized" type="integer">1</property>
+			<property name="Active" type="integer">1</property>
+		</category>
+	</category>
+</settings>
