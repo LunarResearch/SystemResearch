@@ -81,7 +81,7 @@ LRESULT CALLBACK DialogProc(HWND hDlg, UINT uMsg, WPARAM wParam, LPARAM lParam)
 					break;
 
 				case 4017:
-					DeleteLockFile(hDlg);
+					DeleteLockedFile(hDlg);
 					break;
 
 				case 4018:
@@ -201,3 +201,4 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PTCHAR lpCmdLi
 
 	return EXIT_SUCCESS;
 }
+
