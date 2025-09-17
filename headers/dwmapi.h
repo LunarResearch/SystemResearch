@@ -7,49 +7,31 @@
 
 /* Windows Desktop Window Manager API definitions (Vista) */
 
+#include <winapifamily.h>
+
+#if __POCC__ >= 290
+#pragma warn(push)
+#pragma warn(disable:2185)  /* Alignment of field 'x' can be less than the natural alignment */
+#endif
+
+#if WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP)
+
 #ifndef DWMAPI
 #define DWMAPI         EXTERN_C DECLSPEC_IMPORT HRESULT STDAPICALLTYPE
 #define DWMAPI_(type)  EXTERN_C DECLSPEC_IMPORT type STDAPICALLTYPE
 #endif /* DWMAPI */
 
-#include <pshpack1.h>
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-#if __POCC__ >= 290
-#pragma warn(push)
-#pragma warn(disable:2185)  /* Alignment of field 'x' can be less than the natural alignment */
-#pragma warn(disable:2073)
-#endif
-
+#ifndef MILCORE_KERNEL_COMPONENT
 #include <wtypes.h>
 #include <uxtheme.h>
+#endif
+
+#include <pshpack1.h>
 
 // Blur behind data structures
-#define DWM_BB_ENABLE  0x00000001					// fEnable has been specified
-#define DWM_BB_BLURREGION  0x00000002				// hRgnBlur has been specified
+#define DWM_BB_ENABLE                 0x00000001	// fEnable has been specified
+#define DWM_BB_BLURREGION             0x00000002	// hRgnBlur has been specified
 #define DWM_BB_TRANSITIONONMAXIMIZED  0x00000004	// fTransitionOnMaximized has been specified
-
-#define DWM_TNP_RECTDESTINATION  0x00000001			// A value for the "rcDestination" member has been specified.
-#define DWM_TNP_RECTSOURCE  0x00000002				// A value for the "rcSource" member has been specified.
-#define DWM_TNP_OPACITY  0x00000004					// A value for the "opacity" member has been specified.
-#define DWM_TNP_VISIBLE  0x00000008					// A value for the "fVisible" member has been specified.
-#define DWM_TNP_SOURCECLIENTAREAONLY  0x00000010	// A value for the "fSourceClientAreaOnly" member has been specified.
-
-#define DWM_FRAME_DURATION_DEFAULT  -1
-
-#define DWMWA_COLOR_DEFAULT  0xFFFFFFFF	// Use this constant to reset any window part colors to the system default behavior
-#define DWMWA_COLOR_NONE  0xFFFFFFFE	// Use this constant to specify that a window part should not be rendered
-
-#define DWM_EC_DISABLECOMPOSITION  0
-#define DWM_EC_ENABLECOMPOSITION  1
-
-// Cloaked flags describing why a window is cloaked.
-#define DWM_CLOAKED_APP  0x00000001
-#define DWM_CLOAKED_SHELL  0x00000002
-#define DWM_CLOAKED_INHERITED  0x00000004
 
 typedef struct _DWM_BLURBEHIND {
     DWORD dwFlags;
@@ -88,6 +70,25 @@ enum DWMWINDOWATTRIBUTE {
 	DWMWA_LAST
 };
 
+typedef enum {
+    DWMWCP_DEFAULT = 0,			// Let the system decide whether or not to round window corners.
+    DWMWCP_DONOTROUND = 1,		// Never round window corners.
+    DWMWCP_ROUND = 2,			// Round the corners if appropriate.
+    DWMWCP_ROUNDSMALL = 3		// Round the corners if appropriate, with a small radius.
+} DWM_WINDOW_CORNER_PREFERENCE;
+
+#define DWMWA_COLOR_DEFAULT 0xFFFFFFFF	// Use this constant to reset any window part colors to the system default behavior
+
+#define DWMWA_COLOR_NONE    0xFFFFFFFE	// Use this constant to specify that a window part should not be rendered
+
+enum DWM_SYSTEMBACKDROP_TYPE {
+    DWMSBT_AUTO,				// [Default] Let DWM automatically decide the system-drawn backdrop for this window.
+    DWMSBT_NONE,				// Do not draw any system backdrop.
+    DWMSBT_MAINWINDOW,			// Draw the backdrop material effect corresponding to a long-lived window.
+    DWMSBT_TRANSIENTWINDOW,		// Draw the backdrop material effect corresponding to a transient window.
+    DWMSBT_TABBEDWINDOW,		// Draw the backdrop material effect corresponding to a window with a tabbed title bar.
+};
+
 enum DWMNCRENDERINGPOLICY {
     DWMNCRP_USEWINDOWSTYLE,
     DWMNCRP_DISABLED,
@@ -103,8 +104,19 @@ enum DWMFLIP3DWINDOWPOLICY {
     DWMFLIP3D_LAST
 };
 
+// Cloaked flags describing why a window is cloaked.
+#define DWM_CLOAKED_APP         0x00000001
+#define DWM_CLOAKED_SHELL       0x00000002
+#define DWM_CLOAKED_INHERITED   0x00000004
+
 typedef HANDLE HTHUMBNAIL;
 typedef HTHUMBNAIL *PHTHUMBNAIL;
+
+#define DWM_TNP_RECTDESTINATION                  0x00000001	// A value for the "rcDestination" member has been specified.
+#define DWM_TNP_RECTSOURCE                       0x00000002	// A value for the "rcSource" member has been specified.
+#define DWM_TNP_OPACITY                          0x00000004	// A value for the "opacity" member has been specified.
+#define DWM_TNP_VISIBLE                          0x00000008	// A value for the "fVisible" member has been specified.
+#define DWM_TNP_SOURCECLIENTAREAONLY             0x00000010	// A value for the "fSourceClientAreaOnly" member has been specified.
 
 typedef struct _DWM_THUMBNAIL_PROPERTIES {
     DWORD dwFlags;				// Specifies which members of this struct have been specified
@@ -173,9 +185,9 @@ typedef enum {
     DWM_SOURCE_FRAME_SAMPLING_LAST		// Sentinel value
 } DWM_SOURCE_FRAME_SAMPLING;
 
-/* static const UINT c_DwmMaxQueuedBuffers = 8; */
-/* static const UINT c_DwmMaxMonitors = 16; */
-/* static const UINT c_DwmMaxAdapters = 16; */
+EXTERN_C __declspec(selectany) const UINT c_DwmMaxQueuedBuffers = 8;
+EXTERN_C __declspec(selectany) const UINT c_DwmMaxMonitors = 16;
+EXTERN_C __declspec(selectany) const UINT c_DwmMaxAdapters = 16;
 
 typedef struct _DWM_PRESENT_PARAMETERS {
     UINT32 cbSize;
@@ -188,22 +200,185 @@ typedef struct _DWM_PRESENT_PARAMETERS {
     DWM_SOURCE_FRAME_SAMPLING eSampling;
 } DWM_PRESENT_PARAMETERS;
 
+#define DWM_FRAME_DURATION_DEFAULT -1
+
+DWMAPI_(BOOL) DwmDefWindowProc(
+    HWND hWnd,
+    UINT msg,
+    WPARAM wParam,
+    LPARAM lParam,
+    LRESULT *plResult
+);
+
+DWMAPI DwmEnableBlurBehindWindow(
+    HWND hWnd,
+    const DWM_BLURBEHIND *pBlurBehind
+);
+
+#define DWM_EC_DISABLECOMPOSITION         0
+#define DWM_EC_ENABLECOMPOSITION          1
+
+DWMAPI DwmEnableComposition(
+    UINT uCompositionAction
+);
+
+#if (NTDDI_VERSION >= NTDDI_WIN8)
+#pragma deprecated (DwmEnableComposition)
+#endif /* (NTDDI_VERSION >= NTDDI_WIN8) */
+
+DWMAPI DwmEnableMMCSS(
+    BOOL fEnableMMCSS
+);
+
+DWMAPI DwmExtendFrameIntoClientArea(
+    HWND hWnd,
+    const MARGINS *pMarInset
+);
+
+DWMAPI DwmGetColorizationColor(
+    DWORD *pcrColorization,
+    BOOL *pfOpaqueBlend
+);
+
+DWMAPI DwmGetCompositionTimingInfo(
+    HWND hwnd,
+    DWM_TIMING_INFO *pTimingInfo
+);
+
+DWMAPI DwmGetWindowAttribute(
+    HWND hwnd,
+    DWORD dwAttribute,
+    PVOID pvAttribute,
+    DWORD cbAttribute
+);
+
+DWMAPI DwmIsCompositionEnabled(
+    BOOL *pfEnabled
+);
+
+DWMAPI DwmModifyPreviousDxFrameDuration(
+    HWND hwnd,
+    INT cRefreshes,
+    BOOL fRelative
+);
+
+DWMAPI DwmQueryThumbnailSourceSize(
+    HTHUMBNAIL hThumbnail,
+    PSIZE pSize
+);
+
+DWMAPI DwmRegisterThumbnail(
+    HWND hwndDestination,
+    HWND hwndSource,
+    PHTHUMBNAIL phThumbnailId
+);
+
+DWMAPI DwmSetDxFrameDuration(
+    HWND hwnd,
+    INT cRefreshes
+);
+
+DWMAPI DwmSetPresentParameters(
+    HWND hwnd,
+    DWM_PRESENT_PARAMETERS *pPresentParams
+);
+
+DWMAPI DwmSetWindowAttribute(
+    HWND hwnd,
+    DWORD dwAttribute,
+    LPCVOID pvAttribute,
+    DWORD cbAttribute
+);
+
+DWMAPI DwmUnregisterThumbnail(
+    HTHUMBNAIL hThumbnailId
+);
+
+DWMAPI DwmUpdateThumbnailProperties(
+    HTHUMBNAIL hThumbnailId,
+    const DWM_THUMBNAIL_PROPERTIES *ptnProperties
+);
+
+#if (_WIN32_WINNT >= 0x0601)
+
+#define DWM_SIT_DISPLAYFRAME  0x00000001
+
+DWMAPI DwmSetIconicThumbnail(
+    HWND hwnd,
+    HBITMAP hbmp,
+    DWORD dwSITFlags
+);
+
+DWMAPI DwmSetIconicLivePreviewBitmap(
+    HWND hwnd,
+    HBITMAP hbmp,
+    POINT *pptClient,
+    DWORD dwSITFlags
+);
+
+DWMAPI DwmInvalidateIconicBitmaps(
+    HWND hwnd
+);
+
+#endif /* _WIN32_WINNT >= 0x0601 */
+
+DWMAPI DwmAttachMilContent(
+    HWND hwnd
+);
+
+DWMAPI DwmDetachMilContent(
+    HWND hwnd
+);
+
+DWMAPI DwmFlush(void);
+
+#ifndef MILCORE_KERNEL_COMPONENT
+
 #ifndef _MIL_MATRIX3X2D_DEFINED
-typedef struct _MIL_MATRIX3X2D {
+#define _MIL_MATRIX3X2D_DEFINED
+typedef struct _MilMatrix3x2D {
     DOUBLE S_11;
     DOUBLE S_12;
     DOUBLE S_21;
     DOUBLE S_22;
     DOUBLE DX;
     DOUBLE DY;
-} MIL_MATRIX3X2D;
-#define _MIL_MATRIX3X2D_DEFINED
+} MilMatrix3x2D;
 #endif /* _MIL_MATRIX3X2D_DEFINED */
+
+#ifndef MILCORE_MIL_MATRIX3X2D_COMPAT_TYPEDEF
+typedef MilMatrix3x2D MIL_MATRIX3X2D;
+#define MILCORE_MIL_MATRIX3X2D_COMPAT_TYPEDEF
+
+#endif // MILCORE_MIL_MATRIX3X2D_COMPAT_TYPEDEF
+
+DWMAPI DwmGetGraphicsStreamTransformHint(
+    UINT uIndex,
+    MilMatrix3x2D *pTransform
+);
+
+DWMAPI DwmGetGraphicsStreamClient(
+    UINT uIndex,
+    UUID *pClientUuid
+);
+
+#endif // MILCORE_KERNEL_COMPONENT
+
+DWMAPI DwmGetTransportAttributes(
+    BOOL *pfIsRemoting,
+    BOOL *pfIsConnected,
+    DWORD *pDwGeneration
+);
 
 enum DWMTRANSITION_OWNEDWINDOW_TARGET {
     DWMTRANSITION_OWNEDWINDOW_NULL = -1,
     DWMTRANSITION_OWNEDWINDOW_REPOSITION = 0,
 };
+
+DWMAPI DwmTransitionOwnedWindow(
+    HWND hwnd,
+    enum DWMTRANSITION_OWNEDWINDOW_TARGET target
+);
 
 #if (NTDDI_VERSION >= NTDDI_WIN8)
 
@@ -221,6 +396,19 @@ enum GESTURE_TYPE {
     GT_TOUCH_PRESSANDTAP = 10,
 };
 
+DWMAPI DwmRenderGesture(
+    enum GESTURE_TYPE gt,
+    UINT cContacts,
+    const DWORD *pdwPointerID,
+    const POINT *pPoints
+);
+
+DWMAPI DwmTetherContact(
+    DWORD dwPointerID,
+    BOOL fEnable,
+    POINT ptTether
+);
+
 enum DWM_SHOWCONTACT {
     DWMSC_DOWN = 0x00000001,
     DWMSC_UP = 0x00000002,
@@ -230,58 +418,39 @@ enum DWM_SHOWCONTACT {
     DWMSC_NONE = 0x00000000,
     DWMSC_ALL = 0xFFFFFFFF
 };
-/* DEFINE_ENUM_FLAG_OPERATORS(DWM_SHOWCONTACT); */
 
-#endif /* NTDDI_VERSION >= NTDDI_WIN8 */
+DWMAPI DwmShowContact(
+    DWORD dwPointerID,
+    enum DWM_SHOWCONTACT eShowContact
+);
+#endif /* (NTDDI_VERSION >= NTDDI_WIN8) */
 
-DWMAPI_(BOOL) DwmDefWindowProc(HWND, UINT, WPARAM, LPARAM, LRESULT *);
-DWMAPI DwmEnableBlurBehindWindow(HWND, const DWM_BLURBEHIND *);
-#if NTDDI_VERSION >= NTDDI_WIN8
-__declspec(deprecated) DWMAPI DwmEnableComposition(UINT);
-#else /* NTDDI_VERSION < NTDDI_WIN8 */
-DWMAPI DwmEnableComposition(UINT);
-#endif /* NTDDI_VERSION < NTDDI_WIN8 */
-DWMAPI DwmEnableMMCSS(BOOL);
-DWMAPI DwmExtendFrameIntoClientArea(HWND, const MARGINS *);
-DWMAPI DwmGetColorizationColor(DWORD *, BOOL *);
-DWMAPI DwmGetCompositionTimingInfo(HWND, DWM_TIMING_INFO *);
-DWMAPI DwmGetWindowAttribute(HWND, DWORD, PVOID, DWORD);
-DWMAPI DwmIsCompositionEnabled(BOOL *);
-DWMAPI DwmModifyPreviousDxFrameDuration(HWND, INT, BOOL);
-DWMAPI DwmQueryThumbnailSourceSize(HTHUMBNAIL, PSIZE);
-DWMAPI DwmRegisterThumbnail(HWND, HWND, PHTHUMBNAIL);
-DWMAPI DwmSetDxFrameDuration(HWND, INT);
-DWMAPI DwmSetPresentParameters(HWND, DWM_PRESENT_PARAMETERS *);
-DWMAPI DwmSetWindowAttribute(HWND, DWORD, LPCVOID, DWORD);
-DWMAPI DwmUnregisterThumbnail(HTHUMBNAIL);
-DWMAPI DwmUpdateThumbnailProperties(HTHUMBNAIL, const DWM_THUMBNAIL_PROPERTIES *);
-#if (_WIN32_WINNT >= 0x0601)
-#define DWM_SIT_DISPLAYFRAME  0x00000001
-DWMAPI DwmSetIconicThumbnail(HWND, HBITMAP, DWORD);
-DWMAPI DwmSetIconicLivePreviewBitmap(HWND, HBITMAP, POINT *, DWORD);
-DWMAPI DwmInvalidateIconicBitmaps(HWND);
-#endif /* _WIN32_WINNT >= 0x0601 */
-DWMAPI DwmAttachMilContent(HWND);
-DWMAPI DwmDetachMilContent(HWND);
-DWMAPI DwmFlush(void);
-DWMAPI DwmGetGraphicsStreamTransformHint(UINT, MIL_MATRIX3X2D *);
-DWMAPI DwmGetGraphicsStreamClient(UINT, UUID *);
-DWMAPI DwmGetTransportAttributes(BOOL *, BOOL *, DWORD *);
-DWMAPI DwmTransitionOwnedWindow(HWND, enum DWMTRANSITION_OWNEDWINDOW_TARGET);
-#if (NTDDI_VERSION >= NTDDI_WIN8)
-DWMAPI DwmRenderGesture(enum GESTURE_TYPE, UINT, const DWORD *, const POINT *);
-DWMAPI DwmTetherContact(DWORD, BOOL, POINT);
-DWMAPI DwmShowContact(DWORD, enum DWM_SHOWCONTACT);
-#endif /* NTDDI_VERSION >= NTDDI_WIN8 */
+#if (NTDDI_VERSION >= NTDDI_WIN10_RS4)
+
+enum DWM_TAB_WINDOW_REQUIREMENTS {
+    DWMTWR_NONE = 0x0000,
+    DWMTWR_IMPLEMENTED_BY_SYSTEM = 0x0001,
+    DWMTWR_WINDOW_RELATIONSHIP = 0x0002,
+    DWMTWR_WINDOW_STYLES = 0x0004,
+    DWMTWR_WINDOW_REGION = 0x0008,
+    DWMTWR_WINDOW_DWM_ATTRIBUTES = 0x0010,
+    DWMTWR_WINDOW_MARGINS = 0x0020,
+    DWMTWR_TABBING_ENABLED = 0x0040,
+    DWMTWR_USER_POLICY = 0x0080,
+    DWMTWR_GROUP_POLICY = 0x0100,
+    DWMTWR_APP_COMPAT = 0x0200
+};
+
+DWMAPI DwmGetUnmetTabRequirements(HWND appWindow, enum DWM_TAB_WINDOW_REQUIREMENTS* value);
+
+#endif /* (NTDDI_VERSION >= NTDDI_WIN10_RS4) */
+
+#include <poppack.h>
+
+#endif /* WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) */
 
 #if __POCC__ >= 290
 #pragma warn(pop)
 #endif
-
-#ifdef __cplusplus
-}
-#endif
-
-#include <poppack.h>
 
 #endif /* _DWMAPI_H */
