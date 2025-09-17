@@ -15,6 +15,7 @@
 |*| Windows 10 22H2 - Build 19045 |*| Windows 11 22H2 - Build 22621 |*|
 |*|                               |*| Windows 11 23H2 - Build 22631 |*|
 |*|                               |*| Windows 11 24H2 - Build 26100 |*|
+|*|                               |*| Windows 11 25H2 - Build 26200 |*|
 |*|*****************************************************************|*/
 #ifndef _DEFINES_H
 #define _DEFINES_H
@@ -54,7 +55,6 @@
 #pragma comment(lib, "Wtsapi32")
 #pragma comment(lib, "Userenv")
 #pragma comment(lib, "Dwmapi")
-#pragma comment(lib, "Version")
 
 
 #define RTL_USER_PROC_PARAMS_NORMALIZED 0x00000001
@@ -67,19 +67,6 @@
 #define SECURITY_MANDATORY_SECURE_PROCESS_RID (0x00007000L)
 
 #define BITWISE_ASSIGNMENT_OPERATOR 0x0FFFFFFF
-
-
-#define PROTECTION_LEVEL_WINTCB_LIGHT 0x00000000
-#define PROTECTION_LEVEL_WINDOWS 0x00000001
-#define PROTECTION_LEVEL_WINDOWS_LIGHT 0x00000002
-#define PROTECTION_LEVEL_ANTIMALWARE_LIGHT 0x00000003
-#define PROTECTION_LEVEL_LSA_LIGHT 0x00000004
-#define PROTECTION_LEVEL_WINTCB 0x00000005
-#define PROTECTION_LEVEL_CODEGEN_LIGHT 0x00000006
-#define PROTECTION_LEVEL_AUTHENTICODE 0x00000007
-#define PROTECTION_LEVEL_PPL_APP 0x00000008
-#define PROTECTION_LEVEL_NONE 0x00000009
-
 
 #define SE_PRIVILEGE_DISABLED (0x00000000L)
 
@@ -128,18 +115,6 @@
 #define MB_CAPTIONQUESTION TEXT("Question")
 #define MB_CAPTIONINFORMATION TEXT("Information")
 #define MB_CAPTIONEXCLAMATION TEXT("Notification")
-
-
-constexpr int DWMWCP_DEFAULT = 0;		// Let the system decide whether or not to round window corners.
-constexpr int DWMWCP_DONOTROUND = 1;		// Never round window corners.
-constexpr int DWMWCP_ROUND = 2;			// Round the corners if appropriate.
-constexpr int DWMWCP_ROUNDSMALL = 3;		// Round the corners if appropriate, with a small radius.
-
-constexpr int DWMSBT_AUTO = 0;			// [Default] Let DWM automatically decide the system-drawn backdrop for this window.
-constexpr int DWMSBT_NONE = 1;			// Do not draw any system backdrop.
-constexpr int DWMSBT_MAINWINDOW = 2;		// Draw the backdrop material effect corresponding to a long-lived window.
-constexpr int DWMSBT_TRANSIENTWINDOW = 3;	// Draw the backdrop material effect corresponding to a transient window.
-constexpr int DWMSBT_TABBEDWINDOW = 4;		// Draw the backdrop material effect corresponding to a window with a tabbed title bar.
 
 
 constexpr LONG_PTR PRIVILEGE_MANAGER = 1;
@@ -542,7 +517,7 @@ BOOL SuperUserAsWinlogon(HWND, WPARAM);
 BOOL RestartApp(HWND, WPARAM);
 BOOL LocalSystemToken(HWND, WPARAM);
 BOOL TrustedInstallerToken(HWND, WPARAM);
-BOOL DeleteLockFile(HWND);
+BOOL DeleteLockedFile(HWND);
 
 
 /**************************
@@ -601,3 +576,4 @@ BOOL GetDiscretionaryACL(HWND, DWORD);
 
 
 #endif  /* _DEFINES_H */
+
