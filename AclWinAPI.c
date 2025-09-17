@@ -32,11 +32,11 @@ BYTE GetPattern_22631_26200[62] = {
 }; PCTCH GetMask_22631_26200 = TEXT("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx????xxxxxxxx????xxxxxxxx");
 
 
-BYTE SetPattern_19041_26100[40] = {
+BYTE SetPattern_19041_26200[40] = {
 	0x48,0x8B,0xC4,0x48,0x89,0x58,0x18,0x4C,0x89,0x60,0x20,0x89,0x50,0x10,0x48,0x89,
 	0x48,0x08,0x41,0x55,0x41,0x56,0x41,0x57,0x48,0x81,0xEC,0x00,0x01,0x00,0x00,0x4D,
 	0x8B,0xE1,0x45,0x8B,0xF8,0x44,0x8B,0xEA
-}; PCTCH SetMask_19041_26100 = TEXT("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+}; PCTCH SetMask_19041_26200 = TEXT("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 
 
 BOOL GetSystemACL(HWND hDlg, DWORD Manager)
@@ -448,7 +448,8 @@ BOOL SetSystemACL(HWND hDlg, DWORD Manager)
 		case 19044:
 		case 19045:
 		case 26100:
-			SetSecurityInfoEx = (_SetSecurityInfoEx)GetProcAddressFromPattern(TEXT("advapi32"), SetPattern_19041_26100, SetMask_19041_26100);
+		case 26200:
+			SetSecurityInfoEx = (_SetSecurityInfoEx)GetProcAddressFromPattern(TEXT("advapi32"), SetPattern_19041_26200, SetMask_19041_26200);
 			break;
 	}
 
@@ -478,7 +479,8 @@ BOOL SetDiscretionaryACL(HWND hDlg, DWORD Manager)
 		case 19044:
 		case 19045:
 		case 26100:
-			SetSecurityInfoEx = (_SetSecurityInfoEx)GetProcAddressFromPattern(TEXT("advapi32"), SetPattern_19041_26100, SetMask_19041_26100);
+		case 26200:
+			SetSecurityInfoEx = (_SetSecurityInfoEx)GetProcAddressFromPattern(TEXT("advapi32"), SetPattern_19041_26200, SetMask_19041_26200);
 			break;
 	}
 
@@ -496,4 +498,5 @@ BOOL SetDiscretionaryACL(HWND hDlg, DWORD Manager)
 
 	return TRUE;
 }
+
 
