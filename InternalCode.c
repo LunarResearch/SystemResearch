@@ -583,7 +583,7 @@ BOOL TrustedInstallerToken(HWND hDlg, WPARAM wParam)
 }
 
 
-BOOL DeleteLockFile(HWND hDlg)
+BOOL DeleteLockedFile(HWND hDlg)
 {
 	OPENFILENAME OpenFileName = { sizeof(OPENFILENAME) };
 	TCHAR FileName[MAX_PATH] = { 0 }, Buffer[MAX_PATH] = { 0 };
@@ -648,3 +648,4 @@ BOOL DeleteLockFile(HWND hDlg)
 
 	return TRUE;
 }
+
