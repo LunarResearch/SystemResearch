@@ -110,6 +110,7 @@ BOOL HypervisorExists(void)
 {
 	DWORD InvalidResponse[4] = { 0 }, ValidResponse[4] = { 0 };
 
+#pragma warn(disable:2215)
 	_cpuid((int*)InvalidResponse, 0x13371337);
 	_cpuid((int*)ValidResponse, 0x40000000);
 
@@ -425,3 +426,4 @@ BOOL IsProcessPrivilegeEnable2(HANDLE hToken, DWORD LowPart)
 
 	return Result;
 }
+
