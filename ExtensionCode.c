@@ -43,9 +43,9 @@ DWORD GetBuildOSNumber(void)
 	if (hModule)
 		RtlGetNtVersionNumbers = (_RtlGetNtVersionNumbers)GetProcAddress(hModule, "RtlGetNtVersionNumbers");
 
-	DWORD MajorOSVersion = 0, MinorOSVersion = 0, BuildOSNumber = 0;
+	DWORD BuildOSNumber = 0; // MajorOSVersion = 0, MinorOSVersion = 0,
 
-	RtlGetNtVersionNumbers(&MajorOSVersion, &MinorOSVersion, &BuildOSNumber);
+	RtlGetNtVersionNumbers(NULL, NULL, &BuildOSNumber);
 	
 	BuildOSNumber &= BITWISE_ASSIGNMENT_OPERATOR;
 	//BuildOSNumber = BuildOSNumber - 0xF0000000;
@@ -56,8 +56,10 @@ DWORD GetBuildOSNumber(void)
 
 BOOL SetDesktopComposition(HWND hDlg)
 {
-	if ((DwmSetWindowAttribute(hDlg, DWMWA_WINDOW_CORNER_PREFERENCE, &DWMWCP_ROUNDSMALL, sizeof(DWORD)) == DWM_E_COMPOSITIONDISABLED) &
-		(DwmSetWindowAttribute(hDlg, DWMWA_SYSTEMBACKDROP_TYPE, &DWMSBT_TABBEDWINDOW, sizeof(DWORD)) == DWM_E_COMPOSITIONDISABLED))
+	DWORD DwmWCP = DWMWCP_ROUNDSMALL, DwmSBT = DWMSBT_TABBEDWINDOW;
+	
+	if ((DwmSetWindowAttribute(hDlg, DWMWA_WINDOW_CORNER_PREFERENCE, &DwmWCP, sizeof(DWORD)) == DWM_E_COMPOSITIONDISABLED) &
+		(DwmSetWindowAttribute(hDlg, DWMWA_SYSTEMBACKDROP_TYPE, &DwmSBT, sizeof(DWORD)) == DWM_E_COMPOSITIONDISABLED))
 		return FALSE;
 
 	return TRUE;
@@ -426,4 +428,5 @@ BOOL IsProcessPrivilegeEnable2(HANDLE hToken, DWORD LowPart)
 
 	return Result;
 }
+
 
