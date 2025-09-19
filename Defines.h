@@ -131,7 +131,7 @@ HINSTANCE g_hInstance = NULL;
 HANDLE g_hProcess = NULL;
 HWND g_hWndProcessList = NULL, g_hWndServiceList = NULL;
 TCHAR g_ServiceName[MAX_PATH] = { 0 };
-DWORD g_dwProcessId = 0, g_dwThreadId = 0, g_IdxProcessId[1024] = { 0 }, OBJ_KERNEL_DESIRED_ACCESS = 0L, g_LowPart;
+DWORD g_dwProcessId = 0, g_dwThreadId = 0, g_IdxProcessId[1024] = { 0 }, OBJ_KERNEL_DESIRED_ACCESS = 0L, g_LowPart = 0L;
 LONG_PTR g_Idx = 0;
 
 BOOL g_IsCheckedSacl = FALSE, g_IsCheckedDacl = FALSE,
@@ -432,7 +432,7 @@ typedef DWORD(WINAPI* _GetSecurityInfoEx)(
 	PTCH* lppOwner,
 	PTCH* lppGroup
 	);
-_GetSecurityInfoEx GetSecurityInfoEx;
+_GetSecurityInfoEx GetSecurityInfoEx = NULL;
 
 typedef DWORD(WINAPI* _SetSecurityInfoEx)(
     HANDLE hObject,
@@ -445,7 +445,7 @@ typedef DWORD(WINAPI* _SetSecurityInfoEx)(
     PTCH lpGroup,
     PACTRL_OVERLAPPED pOverlapped
    );
-_SetSecurityInfoEx SetSecurityInfoEx;
+_SetSecurityInfoEx SetSecurityInfoEx = NULL;
 
 
 /***********************
@@ -576,4 +576,5 @@ BOOL GetDiscretionaryACL(HWND, DWORD);
 
 
 #endif  /* _DEFINES_H */
+
 
