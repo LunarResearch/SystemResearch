@@ -75,9 +75,10 @@ BOOL GetSystemACL(HWND hDlg, DWORD Manager)
 			GetSecurityInfoEx = (_GetSecurityInfoEx)GetProcAddressFromPattern(TEXT("advapi32"), GetPattern_9200_10240_22621, GetMask_9200_10240_22621);
 			break;
 
-		case 22631:
-		case 26100:
-		case 26200:
+		//case 22631:
+		//case 26100:
+		//case 26200:
+		default:
 			GetSecurityInfoEx = (_GetSecurityInfoEx)GetProcAddressFromPattern(TEXT("advapi32"), GetPattern_22631_26200, GetMask_22631_26200);
 			break;
 	}
@@ -288,9 +289,10 @@ BOOL GetDiscretionaryACL(HWND hDlg, DWORD Manager)
 			GetSecurityInfoEx = (_GetSecurityInfoEx)GetProcAddressFromPattern(TEXT("advapi32"), GetPattern_9200_10240_22621, GetMask_9200_10240_22621);
 			break;
 
-		case 22631:
-		case 26100:
-		case 26200:
+		//case 22631:
+		//case 26100:
+		//case 26200:
+		default:
 			GetSecurityInfoEx = (_GetSecurityInfoEx)GetProcAddressFromPattern(TEXT("advapi32"), GetPattern_22631_26200, GetMask_22631_26200);
 			break;
 	}
@@ -498,5 +500,6 @@ BOOL SetDiscretionaryACL(HWND hDlg, DWORD Manager)
 
 	return TRUE;
 }
+
 
 
